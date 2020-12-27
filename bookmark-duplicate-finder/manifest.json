@@ -1,0 +1,12 @@
+{
+  "name": "Bookmark Duplicate Finder",
+  "version": "1.0",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_title": "Bookmark Duplicate Finder"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["tabs","bookmarks"]
+}
