@@ -21,22 +21,22 @@ function findAndShowDuplicates(bookmarks, ignoreParameters) {
     });
     const listId = 'bookmarkDuplicatesByPath' + (ignoreParameters ? '' : 'AndQueryParams');
     const listEl = $id(listId);
-    map.forEach((bookmarks, url) => {
-        if (bookmarks.length > 1) {
+    map.forEach((bookmarkList, url) => {
+        if (bookmarkList.length > 1) {
             const listItemEl = $el('li');
 
             const countEl = $el('span');
-            $text(countEl, bookmarks.length + ' duplicate(s) for ');
+            $text(countEl, bookmarkList.length + ' duplicate(s) for ');
             $add(listItemEl, countEl);
 
             const linkEl = $link(url, url);
             $add(listItemEl, linkEl);
 
             const subListEl = $el('ul');
-            const titleList = bookmarks.map((bookmark) => bookmark.title);
-            titleList.forEach((title) => {
+            bookmarkList.forEach((bookmark) => {
                 const subListItemEl = $el('li');
-                $text(subListItemEl, title);
+                const subLinkEl = $link(bookmark.url, bookmark.title);
+                $add(subListItemEl, subLinkEl);
                 $add(subListEl, subListItemEl);
             });
             $add(listItemEl, subListEl);
