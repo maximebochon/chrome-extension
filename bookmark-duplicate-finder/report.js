@@ -35,8 +35,14 @@ function findAndShowDuplicates(bookmarks, ignoreParameters) {
             const subListEl = $el('ul');
             bookmarkList.forEach((bookmark) => {
                 const subListItemEl = $el('li');
+
+                const parentTitleEl = $el('span');
+                $text(parentTitleEl, "[" + bookmark.parentId + "] ");
+                $add(subListItemEl, parentTitleEl);
+
                 const subLinkEl = $link(bookmark.url, bookmark.title);
                 $add(subListItemEl, subLinkEl);
+
                 $add(subListEl, subListItemEl);
             });
             $add(listItemEl, subListEl);
