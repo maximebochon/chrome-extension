@@ -1,0 +1,5 @@
+# Ignore JetBrain files
+.idea/
+*.iml
+*.ipr
+*.iws
